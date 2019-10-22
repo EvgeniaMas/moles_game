@@ -1,8 +1,19 @@
-'use strict';
+// 'use strict';
 
 const nuts = document.querySelectorAll('.nut');
 const overlay = document.getElementById('start_screen');
+let config_data;
+let data;
 
+
+// if(data){
+//   alert("jjjj");
+//  config_data = JSON.parse(data);
+//  console.log(config_data);  
+// }
+// else{
+//   alert(data);
+// }
   // const scoreBoard = document.querySelector('.score');
   const squirrels = document.querySelectorAll('.squirrel');
   let lastnut;
@@ -26,9 +37,10 @@ const overlay = document.getElementById('start_screen');
 
   function peep() {
     const time = randomTime(200, 1000);
-    let number = getRandomInt(1, 33);
-    console.log(number);
-    let image_url = "img/"+ "m" + number + ".png";
+    let number_image = getRandomInt(1, 34);
+    let number_mole = getRandomInt(1, 7);
+    // console.log(number_mole);
+    let image_url = "img/"+ "m" + number_image + ".png";
    
     const nut = randomnut(nuts);
     var mole = nut.querySelector('.squirrel');
@@ -64,13 +76,13 @@ const overlay = document.getElementById('start_screen');
 function keyDownTextField(e) {
   overlay.style.display = "none";
   startGame();
-// var keyCode = e.keyCode;
-//   if(keyCode==13) {
-//   alert("You hit the enter key.");
+//   var keyCode = e.keyCode;
+//   if(keyCode==49) {
+//   alert("1");
 //   } else {
 //   alert("Oh no you didn't.");
 //   }
-}
+ }
 
 
 
@@ -78,4 +90,41 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+
+// numpad 1  49
+// numpad 2  50
+// numpad 3  51
+// numpad 4  52
+// numpad 5  53
+// numpad 6  54
+
+
+
+// let mydata = JSON.parse(data);
+// alert(mydata);
+// alert(mydata[0].name);
+
  
+// if(data){
+
+//  alert('888'); 
+// }
+
+
+// function readTextFile(file, callback) {
+//     var rawFile = new XMLHttpRequest();
+//     rawFile.overrideMimeType("application/json");
+//     rawFile.open("GET", file, true);
+//     rawFile.onreadystatechange = function() {
+//         if (rawFile.readyState === 4 && rawFile.status == "200") {
+//             callback(rawFile.responseText);
+//         }
+//     }
+//     rawFile.send(null);
+// }
+
+// //usage:
+// readTextFile("config.json", function(text){
+//     var data = JSON.parse(text);
+//     console.log(data);
+// });
