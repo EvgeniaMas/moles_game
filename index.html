@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Whack a mole</title>
+   <link rel="stylesheet" href="style.css"> 
+<div id="start_screen"></div>
+    <div class="col-md-12">
+      <img class="hole hole1" src="img/hole.png" alt="Hole"> 
+      <img class="hole hole2" src="img/hole.png" alt="Hole"> 
+      <img class="hole hole3" src="img/hole.png" alt="Hole"> 
+      
+      <div class="game_line line1"> 
+     
+    <div class="nut nut1">
+
+      <div class="squirrel"></div>
+    </div>
+    <div class="nut nut2">
+      <div class="squirrel"></div>
+    </div>
+    <div class="nut nut3">
+      <div class="squirrel"></div>
+    </div>
+   </div>
+
+    <div class="col-md-12 "> 
+      <img class="hole hole4" src="img/hole.png" alt="Hole"> 
+      <img class="hole hole5" src="img/hole.png" alt="Hole"> 
+      <div class="game_line line2">
+      
+      <div class="nut nut4">
+      <div class="squirrel"></div>
+    </div>
+    <div class="nut nut5">
+      <div class="squirrel"></div>
+    </div>
+  </div>
+</div>
+
+  <div class="col-md-12">
+    <img class="hole hole6" src="img/hole.png" alt="Hole">
+    <div class="game_line line3">
+    <div class="nut nut6">
+      <div class="squirrel"></div>
+    </div>
+  </div>
+  </div>
+</div>
+<div id="timer_container">
+<div id="running_clocks" class="timer">
+</div>
+</div>
+
+  <script  src="script.js"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script> -->
+<script src="circular-countdown.js"></script>
+<script>
+  $(document).ready(function() {
+      // $('button').click(function() {
+
+          // Run the countdown
+          $('.timer').circularCountDown({
+              delayToFadeIn: 1500,
+        size: 80,
+        fontColor: 'transparent',
+        colorCircle: 'transparent',
+        background: '#ff87d7',
+              reverseLoading: false,
+              duration: {
+                  seconds: 120
+              },
+              beforeStart: function() {
+                  $('.launcher').hide();
+              },
+              end: function(countdown) {
+                  countdown.destroy();
+                  $('.launcher').show();
+                  
+              }
+          });
+      // });
+  });
+</script>
+
+
+
+</body>
+</html>
