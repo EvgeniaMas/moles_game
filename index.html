@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="img/m34.png" />
+<meta name="description" content="mac game" />
+<meta name="keywords" content="whack a mole" />
   <title>Wack-a-mole</title>
    <link rel="stylesheet" href="style.css"> 
    <script src="config.js"></script>
+</head>
 <div id="start_screen"></div>
+<div id="start_screen2"></div>
 <div id="great_job"></div>
 <div id="game_end">
   <p id = "score"> </p>
 </div>
-    <div class="col-md-12">
-      <img class="hole hole1" src="img/hole.png" alt="Hole"> 
+<div class="game_field">
+    <div class="col-md-12 first_row">
+      <img class="hole hole1" src="img/hole.png" alt="Hole">  
       <img class="hole hole2" src="img/hole.png" alt="Hole"> 
       <img class="hole hole3" src="img/hole.png" alt="Hole"> 
-      
-      <div class="game_line line1"> 
-     
-    <div class="nut nut1">
-
-      <div class="squirrel"></div>
-    </div>
-    <div class="nut nut2">
-      <div class="squirrel"></div>
-    </div>
-    <div class="nut nut3">
-      <div class="squirrel"></div>
-    </div>
+      <div class="game_line line1">     
+        <div class="nut nut1">
+         <div class="mole"></div>
+       </div>
+       <div class="nut nut2">
+       <div class="mole"></div>
+       </div>
+       <div class="nut nut3">
+         <div class="mole"></div>
+        </div>
    </div>
-    <div class="col-md-12 "> 
+    <div class="col-md-12 second_row"> 
       <img class="hole hole4" src="img/hole.png" alt="Hole"> 
       <img class="hole hole5" src="img/hole.png" alt="Hole"> 
       <div class="game_line line2">
       
       <div class="nut nut4">
-      <div class="squirrel"></div>
+      <div class="mole"></div>
     </div>
     <div class="nut nut5">
-      <div class="squirrel"></div>
+      <div class="mole"></div>
     </div>
   </div>
 </div>
-
-  <div class="col-md-12">
+  <div class="col-md-12 third_row">
     <img class="hole hole6" src="img/hole.png" alt="Hole">
     <div class="game_line line3">
     <div class="nut nut6">
-      <div class="squirrel"></div>
+      <div class="mole"></div>
     </div>
   </div>
   </div>
+ </div>
 </div>
-<div id="timer_container">
+  <div id="timer_container">
     <div id="running_clocks" class="timer"></div>
     <div id="score_board"></div>
-</div>
-<script src="libs.js"></script>
-<script  src="script.js"></script>
+   </div>
 
-
-
-
+  <script src="libs.js"></script>
+  <script  src="script.js"></script>
 </body>
 </html>

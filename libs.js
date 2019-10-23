@@ -10843,16 +10843,16 @@ return jQuery;
 }(jQuery));
 
 
-  $(document).ready(function() {
+ function enable_timer(){
           $('.timer').circularCountDown({
               delayToFadeIn: 1500,
-        size: 80,
+        size: 83,
         fontColor: 'transparent',
         colorCircle: 'transparent',
-        background: '#ff87d7',
+        background: '#00aaff',
               reverseLoading: false,
               duration: {
-                  seconds: game_time
+                  seconds: game_time/1000
               },
               beforeStart: function() {
                   $('.launcher').hide();
@@ -10864,4 +10864,4 @@ return jQuery;
               }
           });
       
-  });
+  }
