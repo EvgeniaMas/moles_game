@@ -37,13 +37,13 @@ function randomTime(min, max) {
 return Math.round(Math.random() * (max - min) + min);
 }
 function randomnut(nuts) {
-const idx = Math.floor(Math.random() * nuts.length);
-const nut = nuts[idx]; 
+const index = Math.floor(Math.random() * nuts.length);
+const nut = nuts[index]; 
 if (nut === lastnut) {
 return randomnut(nuts);
 }
 lastnut = nut;
-game_data = [nut , idx]; 
+game_data = [nut , index]; 
 return game_data;
 }
 function gameProcess() {
@@ -93,7 +93,7 @@ if(keyCode==keyButton) {
 hit.style.backgroundImage = 'url(' + url + ')';
 score++;
 bars--;
-setTimeout(() => hit.style.backgroundImage = ' ', 1500);
+// setTimeout(() => hit.style.backgroundImage = ' ', 1500);
 document.getElementById('score_board').innerHTML = '';
 if (bars <=5){
   bars =5;
@@ -104,8 +104,6 @@ score_hambuger.className = 'line_score';
 document.getElementById('score_board').appendChild(score_hambuger);
 }
 } 
- 
-// this.classList.remove('up');
 }
 moles.forEach(mole => mole.style.backgroundImage= " ");
 document.addEventListener("keydown", keyDownTextField);	
@@ -113,7 +111,7 @@ function keyDownTextField(e) {
 overlay.style.display = "none";
 overlay2.style.display = "block";
 document.removeEventListener("keydown", keyDownTextField, false);
-document.addEventListener("keydown", keyDownSecondScreen);	
+setTimeout(() => document.addEventListener("keydown", keyDownSecondScreen, false), 5000);
 }
 function keyDownSecondScreen(e) {
 overlay2.style.display = "none";

@@ -29,16 +29,8 @@ overflow-y: hidden;
 .hole_line{
 position: relative;
 height: 12.5rem;
-width: 65.9%;
 margin: auto;
 display: block;
-}
-.hole_line.second{
-width: 55%;
-height: 10rem;
-}
-.hole_line.third{
-height: 10rem;
 }
 .image_container{
 display:-webkit-box;
@@ -47,7 +39,6 @@ display:flex;
 -ms-flex-wrap:wrap;
     flex-wrap:wrap;
 margin:auto;
-height: 11rem;
 position: absolute; 
 right: 0;
 left: 0;
@@ -61,7 +52,6 @@ display:flex;
 -ms-flex-wrap:wrap;
     flex-wrap:wrap;
 margin:auto;
-height: 11rem;
 overflow: hidden;
 position: relative; 
 width: 100%;
@@ -93,7 +83,7 @@ display: block;
 width: 100%;
 position: absolute;
 display: block;
-bottom: -1rem;
+bottom: -0.5rem;
 margin: auto;
 }
 .mole {
@@ -107,6 +97,8 @@ height: 100%;
 -o-transition:all 0.5s;
 transition:all 0.5s;
 z-index: 6;
+border-bottom-right-radius: 41%;
+border-bottom-left-radius: 41%;
 }
 .nut> .mole{
 right: 0;	
@@ -114,7 +106,7 @@ left: 0;
 margin: auto;
 }
 .nut.up .mole {
-top:20%;
+top:0%;
 }
 #timer_container{
 width: 18.75rem;
@@ -191,8 +183,13 @@ z-index: 13;
 }
 @media screen and (min-width: 1500px) { 
 .holes_board {
-min-width: 20rem;
-max-width: 21.75rem;
+min-width: 24rem;
+height: 15.5rem;
+}
+.nut {
+max-width: 20rem;
+min-width: 18rem;
+height:15rem;  
 }
 .timer:after{
 width: 5.1875rem;
@@ -237,8 +234,36 @@ line-height: 1rem;
 top: 27.5%;
 left: 12%;
 }
+.image_container{
+height: 15rem;
+}
+.game_line{
+height: 15rem;
+}
+.hole_line{
+height: 16rem;
+}
+.hole_line.second, 
+.hole_line.third{
+height: 14rem;
+}
+.hole_line{
+width: 70.9%;
+}
+.hole_line.second{
+width: 59%;
+}
 }
 @media screen and (max-width: 1499px) { 
+.holes_board {
+max-width: 18rem;
+min-width: 16rem;
+}
+.nut {
+max-width: 18rem;
+min-width: 14rem;
+height:11rem;  
+}
 .game_field{
 padding-top: 4%;
 }
@@ -258,6 +283,21 @@ width: 259px;
 font-size: 8rem;
 top: 20%;
 left: 11.5%;
+}
+.image_container, 
+.game_line{
+height: 11rem;
+}
+.hole_line{
+height: 12.5rem;
+width: 65.9%;
+}
+.hole_line.second, 
+.hole_line.third{
+height: 10rem;
+}
+.hole_line.second{
+width: 55%;
 }
 }
 @media screen and (max-width: 1300px) { 
