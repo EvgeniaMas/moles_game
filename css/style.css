@@ -1,17 +1,18 @@
 @font-face{font-family:"Open Sans";
-src:url("fonts/OpenSans-Regular.eot");
-src:url("fonts/PT_Sans-Narrow.eot?#iefix") format("embeddedopentype"),
-url("fonts/OpenSans-Regular.woff2") format("woff2"),
-url("fonts/OpenSans-Regular.woff") format("woff"),
-url("fonts/OpenSans-Regular.ttf") format("truetype"),
-url("fonts/OpenSans-Regular.otf") format("opentype"),
-url("fonts/OpenSans-Regular.svg#svgOpenSans-Regular") format("svg");
+src:url("../onts/OpenSans-Regular.eot");
+src:url("../fonts/PT_Sans-Narrow.eot?#iefix") format("embeddedopentype"),
+url("../fonts/OpenSans-Regular.woff2") format("woff2"),
+url("../fonts/OpenSans-Regular.woff") format("woff"),
+url("../fonts/OpenSans-Regular.ttf") format("truetype"),
+url("../fonts/OpenSans-Regular.otf") format("opentype"),
+url("../fonts/OpenSans-Regular.svg#svgOpenSans-Regular") format("svg");
 font-style:normal;
 font-weight:normal;
 font-display: swap;
 }
 html {
-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+        box-sizing: border-box;
 font-size: 16px;
 background-color: #00aaff;
 font-family: 'Open Sans', sans-serif;
@@ -24,34 +25,43 @@ width: 100vw;
 position: relative;
 height: 100vh;
 overflow-y: hidden;
-background-color: #00aaff;
 }
-.game{
-position: relative;
-background-color: pink;
-height: 100vw;
-}
-.col-md-12{
+.hole_line{
 position: relative;
 height: 12.5rem;
 width: 65.9%;
 margin: auto;
 display: block;
 }
-.score {
-background:#ae1ab0;
-padding:0 3rem;
-line-height:1;
-border-radius:1rem;
+.hole_line.second{
+width: 55%;
+height: 10rem;
 }
-.game_line{
+.hole_line.third{
+height: 10rem;
+}
+.image_container{
+display:-webkit-box;
+display:-ms-flexbox;
 display:flex;
-flex-wrap:wrap;
+-ms-flex-wrap:wrap;
+    flex-wrap:wrap;
 margin:auto;
-width: 100vw;
-height: 11.25rem;
+height: 11rem;
+position: absolute; 
+right: 0;
+left: 0;
+top: 0;
+width: 100%;	
 }
 .game_line{
+display:-webkit-box;
+display:-ms-flexbox;
+display:flex;
+-ms-flex-wrap:wrap;
+    flex-wrap:wrap;
+margin:auto;
+height: 11rem;
 overflow: hidden;
 position: relative; 
 width: 100%;
@@ -59,7 +69,19 @@ width: 100%;
 .nut {
 position: relative;
 margin: auto;
-width: 11.25rem;
+max-width: 18rem;
+min-width: 14rem;
+height:11rem;  
+text-align: center;
+line-height: 10rem;
+overflow: visible;
+z-index: 2;
+}
+.holes_board {
+position: relative;
+margin: auto;
+max-width: 22rem;
+min-width: 16rem;
 height:11.25rem;  
 text-align: center;
 line-height: 10rem;
@@ -68,71 +90,31 @@ z-index: 2;
 }
 .hole{
 display: block;
-max-width: 18vw;
-margin: auto;
-}
-.hole.hole6{
+width: 100%;
 position: absolute;
+display: block;
+bottom: -1rem;
 margin: auto;
-bottom: 0;
-left: 0;
-right: 0;
-}
-.hole.hole1{
-position: absolute;
-margin: auto;
-bottom: 0.625rem;
-left: 11%;
-left:0;
-}
-.hole.hole2{
-position: absolute;
-margin: auto;
-bottom: 0.625rem;
-left: 0;
-right: 0;
-}
-.hole.hole3{
-position: absolute;
-margin: auto;
-bottom: 0.625rem;
-right:0;
-}
-.hole.hole4{
-position: absolute;
-margin: auto;
-bottom: 0.625rem;
-left:2%;
-}
-.hole.hole5{
-position: absolute;
-margin: auto;
-bottom: 0.625rem;
-right:2%;
 }
 .mole {
 background: bottom center no-repeat;
+background-size: contain;
 position: absolute;
 top: 100%;
 width: 100%;
 height: 100%;
+-webkit-transition:all 0.5s;
+-o-transition:all 0.5s;
 transition:all 0.5s;
 z-index: 6;
 }
-.nut.nut1> .mole{
-right: 22%;	
-}
-.nut.nut3> .mole{
-left: 22%;	
-}
-.nut.nut4> .mole{
-right: 22%;	
-}
-.nut.nut5> .mole{
-left: 22%;	
+.nut> .mole{
+right: 0;	
+left: 0;
+margin: auto;
 }
 .nut.up .mole {
-top:0;
+top:20%;
 }
 #timer_container{
 width: 18.75rem;
@@ -140,7 +122,7 @@ height: 13.5625rem;
 position: absolute;
 bottom: 0;
 right: 0;
-background-image: url('img/clock.png');
+background-image: url('../img/clock.png');
 background-size: 18.75rem 13.5625rem;
 background-repeat: no-repeat;
 background-position: center;
@@ -161,13 +143,10 @@ border-radius: 50%;
 background-color: #ff87d7 ;
 }
 #great_job{
-background-image: url('img/great.png');
-}
-#game_end{
-background-image: url('img/end.png');
+background-image: url('../img/great.png');
 }
 #start_screen2{
-background-image: url('img/start2.png');
+background-image: url('../img/start2.png');
 }
 #great_job, 
 #game_end,
@@ -183,18 +162,19 @@ background-repeat: no-repeat;
 background-position: center;
 background-color: #00aaff;
 }
+#game_end{
+background-image: url('../img/end.png');
+background-position: top left;
+}
 #start_screen{
 display: block;
-background-image: url('img/start.png');
+background-image: url('../img/start.png');
 }
 #score{
-font-size: 7.5rem;
 font-weight: bold;
 color: #fff;
 position: absolute;
 z-index: 25;
-top: 7.5rem;
-left: 11.875rem;
 }
 .line_score {
 width: 5.4375rem;
@@ -207,41 +187,22 @@ display: block;
 position: absolute;
 bottom: 4.9375rem;
 right: 2.75rem;
+z-index: 13;
 }
 @media screen and (min-width: 1500px) { 
+.holes_board {
+min-width: 20rem;
+max-width: 21.75rem;
+}
 .timer:after{
 width: 5.1875rem;
 height: 5.1875rem;
 }
-.col-md-12{
-width: 70%;
-}
 .game_field{
-padding-top: 17.5rem;
+padding-top: 6%;
 }
-#score{
-font-family: 'Open Sans', sans-serif;
-font-size: 9rem;
-font-weight: bold;
-color: #fff;
-position: absolute;
-z-index: 25;
-top: 17.6vh;
-left: 13.4vw;
-}
-.col-md-12{
-position: relative;
-height: 14.375rem;
-}
-.nut {
-width: 13.75rem;
-height:13.75rem;  
-}
-.col-md-12.second_row{
-padding-top: 4.625rem;
-}
-.col-md-12.third_row{
-padding-top: 1.5rem;
+.hole_line.second{
+width: 45%;
 }
 #timer_container {
 width: 24.4375rem;
@@ -270,23 +231,20 @@ right: 10.4375rem;
 height: 9.8125rem;
 width: 9.9375rem;
 }
-.mole {
-background-size: 8.75rem 13.75rem;
+#score{
+font-size: 10rem;
+line-height: 1rem;
+top: 27.5%;
+left: 12%;
 }
 }
-
 @media screen and (max-width: 1499px) { 
-.mole {
-background-size: 6.25rem 10rem;
-}
-.nut.nut4> .mole{
-right: 18%;	
-}
-.nut.nut5> .mole{
-left: 18%;	
+.game_field{
+padding-top: 4%;
 }
 #score{
 font-size: 7.5rem;
+line-height: 1rem;
 top: 4.375rem;
 left: 10.625rem;
 }
@@ -295,5 +253,16 @@ bottom: 0;
 right: 0; 
 height: 157px;
 width: 259px;
+}
+#score{
+font-size: 8rem;
+top: 20%;
+left: 11.5%;
+}
+}
+@media screen and (max-width: 1300px) { 
+.hole_line,
+.hole_line.second{
+width: 100%;
 }
 }

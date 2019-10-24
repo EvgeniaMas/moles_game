@@ -10,20 +10,25 @@ let bars =5;
 let game_time;
 let x;
 let y;
-const keys = [49, 50,51, 52,53,54 ];
+let reduce_x;
+let reduce_y;
+const keys = [49, 50, 51, 52, 53, 54];
 let start = false;
 let game_data;
 if(data){
 game_time = data.time;
 x = data.x;
-y = data.y
+y = data.y;
+reduce_x = data.reduce_x;
+reduce_y = data.reduce_y;
 }
 else{
 game_time = 30000;
 x = 2000;
 y = 500;
+reduce_x = 0.03;
+reduce_y = 0.01;
 }
-
 const moles = document.querySelectorAll('.mole');
 let lastnut;
 let timeUp = false;
@@ -43,29 +48,27 @@ return game_data;
 }
 function gameProcess() {
 let number_image = getRandomInt(1, 34);
-let image_url = "img/"+ "m" + number_image + ".png";   
-const nut = randomnut(nuts)[0];
-let moles = nut.querySelector('.mole');
-moles.style.backgroundImage = '';
-moles.style.backgroundImage = 'url(' + image_url + ')';
-moles.style.backgroundSize = 'contain';
-nut.classList.add('up');
-setTimeout(() => {
-nut.classList.remove('up');
 bars++;
 let score_hambuger = document.createElement('div');
 score_hambuger.className = 'line_score';
 document.getElementById('score_board').appendChild(score_hambuger);
+let image_url = 'img/'+ 'm' + number_image + '.png';   
+const nut = randomnut(nuts)[0];
+let game_moles = nut.querySelector('.mole');
+moles.forEach(mole => mole.style.backgroundImage = '');
+game_moles.style.backgroundImage = 'url(' + image_url + ')';
+nut.classList.add('up');
+setTimeout(() => {
+nut.classList.remove('up');
 if (!timeUp) {
 setTimeout(() => gameProcess(), y);	
 }
-
 else{
 finishGame();
 }
 }, x);
-x = x- x*0.05;
-y=y - y*0.05;
+x = x- x*reduce_x;
+y=y - y*reduce_y;
 }
 function startGame() {
 for(let i=0; i<5; i++) {
@@ -88,7 +91,6 @@ let url = "img/mcheck.png";
 let hit = nuts[number].querySelector('.mole');
 if(keyCode==keyButton) {
 hit.style.backgroundImage = 'url(' + url + ')';
-hit.style.backgroundSize = 'contain';
 score++;
 bars--;
 setTimeout(() => hit.style.backgroundImage = ' ', 1500);
